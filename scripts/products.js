@@ -2,7 +2,7 @@
 let token = sessionStorage.getItem('token')
 
 async function drawCards(){
-    const response = await fetch("http://129.213.20.209/products",{
+    const response = await fetch("http://129.213.20.209:8080/products",{
         method:'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ async function drawCards(){
 }
 
 async function addToCar(id){
-    const response = await fetch("http://129.213.20.209/user/car",{
+    const response = await fetch("http://129.213.20.209:8080/user/car",{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',

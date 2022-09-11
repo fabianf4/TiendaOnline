@@ -1,5 +1,5 @@
 async function deletee(uuid){
-    const response = await fetch("http://129.213.20.209/user",{
+    const response = await fetch("http://129.213.20.209:8080/user",{
         method:'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ let button = (uuid) => {
 let token = sessionStorage.getItem('token')
 
 async function drawCards(){
-    const response = await fetch("http://129.213.20.209/user",{
+    const response = await fetch("http://129.213.20.209:8080/user",{
         method:'GET',
         headers: {
             'Content-Type': 'application/json',

@@ -7,7 +7,7 @@ async function addProduct() {
     let imgUrl = document.getElementById('imgUrl').value
 
     if(name && price && amount && imgUrl){
-        const response = await fetch("http://129.213.20.209/products", {
+        const response = await fetch("http://129.213.20.209:8080/products", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ async function signin() {
     let password = document.getElementById('password').value
 
     if(name && lastname && username && email && password){
-        const response = await fetch("http://129.213.20.209/user", {
+        const response = await fetch("http://129.213.20.209:8080/user", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
