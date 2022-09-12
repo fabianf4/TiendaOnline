@@ -1,7 +1,5 @@
 async function login (){
 
-    console.log('hola');
-
     let username = document.getElementById('username').value
     let password = document.getElementById('password').value
 
@@ -17,8 +15,6 @@ async function login (){
     })
 
     const result = await response.json()
-
-    console.log({result})
 
     if(result && result.login){
         sessionStorage.setItem('token',result.token)

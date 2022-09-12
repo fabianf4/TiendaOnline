@@ -1,6 +1,6 @@
-async function deletee(uuid){
-    const response = await fetch("http://129.213.20.209:8080/user",{
-        method:'DELETE',
+async function deletee(uuid) {
+    const response = await fetch("http://129.213.20.209:8080/user", {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
@@ -12,11 +12,12 @@ async function deletee(uuid){
 
     const result = await response.json()
 
-    if (result.status){
+    if (result.status) {
         alert(result.status)
-    }else{
+        location.reload()
+    } else {
         alert(result)
-    }  
+    }
 }
 
 let button = (uuid) => {
@@ -31,9 +32,9 @@ let button = (uuid) => {
 
 let token = sessionStorage.getItem('token')
 
-async function drawCards(){
-    const response = await fetch("http://129.213.20.209:8080/user",{
-        method:'GET',
+async function drawProducts() {
+    const response = await fetch("http://129.213.20.209:8080/user", {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
@@ -42,26 +43,32 @@ async function drawCards(){
 
     let result = await response.json()
 
-    let bodyTable=""
-    result.results.forEach((result)=>{
-        bodyTable +=`<tr>
+        if (result.err) {
+            alert(result.err)
+            location.href='/products.html'
+        } else {
+        let bodyTable = ""
+        result.results.forEach((result) => {
+            bodyTable += `<tr>
             <th>${result.uuid}</th>
             <td>${result.name}</td>
             <td>${result.lastname}</td>
             <td>${result.username}</td>
             <td>${result.email}</td>
-            <td>${result.rol==1?'Administrador':'Usuario'}</td>
-            <td>${result.password?'Si':'No'}</td>
+            <td>${result.rol == 1 ? 'Administrador' : 'Usuario'}</td>
+            <td>${result.password ? 'Si' : 'No'}</td>
             <td>${button(result.uuid)}</td>
         </tr>`
-    })
+        })
 
-    document.getElementById('bodyTable').innerHTML = bodyTable
+        document.getElementById('bodyTable').innerHTML = bodyTable
+    }
+
 }
 
-if (token){
-    drawCards()
-}else{
+if (token) {
+    drawProducts()
+} else {
     alert('Debe iniciar sesion')
     location.href = '/login.html'
 }

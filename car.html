@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Producto</title>
+    <title>Usuarios</title>
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
+
 <body>
     <header>
         <nav class="container">
@@ -43,27 +44,32 @@
         </nav>
     </header>
     <div class="container">
-        <h1>Agregar producto</h1>
-        <form class="col-4">
-            <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="name" placeholder="Papas" required>
-            <br>
-            <label for="lastName" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="price" placeholder="Sin comas ni puntos. (12000)" required>
-            <br>
-            <label for="username" class="form-label">Cantidad</label>
-            <input type="number" class="form-control" id="amount" placeholder="Sin comas ni puntos. (1000)" required>
-            <br>
-            <label for="username" class="form-label">URL de la imagen</label>
-            <input type="text" class="form-control" id="imgUrl" placeholder="http://example.com/img.img" required>
-            <br>
-            <input type="button" class="form-control" value="Agregar Producto" id="addProduct">
-        </form>
+        <br>
+        <h1>Mi carro</h1>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="bodyTable">
+
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="total"></h2>
+        <input type="button" class="form-control" value="Pagar" id="pagar">
     </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
-<script src="./scripts/addProduct.js"></script>
+<script src="./scripts/car.js"></script>
 
 </html>

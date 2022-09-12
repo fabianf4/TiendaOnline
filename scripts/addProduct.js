@@ -23,13 +23,15 @@ async function addProduct() {
 
         let result = await response.json();
 
-        console.log(result)
-
         if(result.id){
             alert(`Se registro su producto con id ${result.id}`)
         }
         if(result.errors){
             alert('Error, no se registro el producto')
+        }
+        if(result.err){
+            alert(result.err)
+            location.href='/products.html'
         }
     }else{
         alert('Debe llenar todos los campos')
